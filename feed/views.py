@@ -1,4 +1,6 @@
-from urllib import request
+# from urllib import request
+
+from django.shortcuts import render
 from django.views.generic.edit import CreateView
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -38,3 +40,18 @@ class CreateNewPost(LoginRequiredMixin, CreateView):
         obj.author = self.request.user
         obj.save
         return super().form_valid(form)
+
+    def post(self, request, *args, **kwargs):
+        post = Post.objects.create(
+            text=request.POST.get("text"),
+            author=request.user,
+        )
+        return render(
+            request,
+            "includes/post.html",
+            {
+                "post":post,
+                "show_detail_link": True,
+            },
+            content_type="application/html"
+        )
