@@ -60,7 +60,7 @@
 
 
   {% if request.user.is_anonymous %}
-      <div class="flex items-center justify-center fixed left-0 bottom-0 w-full h-full bg-gray-800 bg-opacity-75">
+      <div class="flex items-center justify-center fixed left-0 bottom-0 w-full h-full bg-gray-800 bg-opacity-75 hidden js-model">
         <div class="bg-white rounded-lg w-1/2">
           <div class="flex flex-col items-start p-4">
             <div class="flex items-center w-full">
@@ -70,15 +70,15 @@
             </svg>
             </div>
             <hr>
-            <div class="">{# to do#}</div>
+            <div class="">{# TODO add ajax form#}</div>
             <hr>
             <div class="ml-auto">
-              <button class="bg-white text-gray-800 font-bold rounded border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-1 px-3 inline-flex items-center text-sm mt-4" type="submit">
+              <button class="bg-white text-gray-800 font-bold rounded border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-1 px-3 inline-flex items-center text-sm mt-4 js-submit" type="button">
                 <span class="mr-2">Create Post</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                   <path fill="currentcolor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
                 </svg>
-            </button>
+              </button>
             </div>
           </div>
         </div>
@@ -87,3 +87,4 @@
   </div>
   </body>
 </html>
+
